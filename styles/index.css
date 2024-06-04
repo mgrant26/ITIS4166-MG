@@ -1,0 +1,51 @@
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo {
+    width: 200px;
+    height: auto;
+}
+
+.logo-text{
+    font-family: "Liberation Serif", serif;
+}
+.footer-icon {
+    width: 24px; /* Adjust the size as needed */
+    height: auto;
+}
+
+.beige-section {
+    background-color: #f5f5dc;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+
+.beige-section-newEvent {
+    width: 100%;
+}
+.beige-section-newEvent input,
+.beige-section-newEvent select,
+.beige-section-newEvent textarea {
+    width: 100%;
+}
