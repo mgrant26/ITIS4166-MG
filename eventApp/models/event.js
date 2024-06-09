@@ -1,13 +1,16 @@
-class Event {
-    constructor(name, category, startDateTime, endDateTime, location, description, image) {
-        this.name = name;
-        this.category = category;
-        this.startDateTime = startDateTime;
-        this.endDateTime = endDateTime;
-        this.location = location;
-        this.description = description;
-        this.image = image;
-    }
-}
+const mongoose = require('mongoose');
+
+const eventSchema = new mongoose.Schema({
+    id: String,
+    name: String,
+    category: String,
+    startDateTime: String,
+    endDateTime: String,
+    location: String,
+    description: String,
+    image: String
+});
+
+const Event = mongoose.model('Event', eventSchema);
 
 module.exports = Event;

@@ -3,37 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Event Details - The Divine Crustacean</title>
+    <title><%= event.name %> - The Divine Crustacean</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="/styles/index.css">
 </head>
 <body>
     <div class="wrapper">
         <%- include('partials/header') %>
-            <main class="content container-fluid p-0">
+
+        <main class="content container-fluid p-0">
             <div class="beige-section mx-2">
                 <div class="row align-items-center">
                     <div class="col-md-6">
-                        <img src="images/beach_template.jpg" alt="Event Image" class="img-fluid">
+                        <img src="<%= event.image %>" alt="Event Image" class="img-fluid">
                     </div>
                     <div class="col-md-6">
                         <div class="d-flex justify-content-between align-items-center mb-3">
-                            <h2>Crab Meet and Greet</h2>
+                            <h2><%= event.name %></h2>
                             <div>
                                 <button type="button" class="btn btn-outline-danger me-2">Delete</button>
                                 <button type="button" class="btn btn-outline-success">Edit</button>
                             </div>
                         </div>
-                        <p>Date: January 1, 2025, 6:00 PM - 9:00 PM</p>
-                        <p>Location: Oceanic Convention Center</p>
-                        <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum faucibus eros nec turpis luctus, ut tempor elit eleifend. Sed a ligula sit amet urna dapibus ultrices vel vitae metus. Nulla facilisi. Sed commodo augue sit amet libero sodales, a vehicula nunc malesuada.</p>
+                        <p><strong>Date:</strong> <%= event.startDateTime %> - <%= event.endDateTime %></p>
+                        <p><strong>Location:</strong> <%= event.location %></p>
+                        <p><strong>Description:</strong> <%= event.description %></p>
                     </div>
                 </div>
             </div>
         </main>
+
         <%- include('partials/footer') %>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="scripts.js"></script>
+    <script src="/scripts.js"></script>
 </body>
 </html>

@@ -1,22 +1,28 @@
 const express = require('express');
 const router = express.Router();
-const multer = require('multer');
 
-// Route to render the home page
-router.get('/', (req, res) => {
-    res.render('index');
+// Import the events array from the eventData module
+const { events } = require('../models/eventData');
+
+router.get('/events', (req, res) => {
+    // Group events by category
+    const categorizedEvents = {};
+    events.forEach(event => {
+        if (!categorizedEvents[event.category]) {
+            categorizedEvents[event.category] = [];
+        }
+        categorizedEvents[event.category].push(event);
+    });
+
+    res.render('events', { categorizedEvents });
 });
 
-// Route to render the new event creation form
+router.get('/', (req, res) => {
+    res.render('index', { title: 'Home' });
+});
+
 router.get('/newEvent', (req, res) => {
     res.render('newEvent', { title: 'Create New Event' });
-});
-
-// Route to handle new event creation
-router.post('/newEvent', multer().single('eventImage'), (req, res) => {
-    const { eventName, category } = req.body;
-    events.push({ category, name: eventName });
-    res.redirect('/events');
 });
 
 module.exports = router;

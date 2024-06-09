@@ -30,6 +30,16 @@ exports.createNewEvent = (req, res) => {
         image: req.file ? `/uploads/${req.file.filename}` : null
     };
 
+    const event = new Event(eventData);
+    event.save((err) => {
+        if (err) {
+            console.error(err);
+            res.status(500).send('Internal Server Error');
+            return;
+        }
+        res.redirect('/events');
+    });
+    
     // Save eventData to database or file
     // For example purposes, just log it
     console.log(eventData);
