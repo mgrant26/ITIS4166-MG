@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const multer = require('multer');
 const path = require('path');
-const { Event } = require('../models/event'); // Assuming you have an Event model defined
+const Event = require('../models/event'); // Ensure this path is correct
 
 // Configure multer for file uploads
 const storage = multer.diskStorage({
@@ -18,17 +18,16 @@ const upload = multer({ storage: storage });
 // Route to handle new event creation
 router.post('/newEvent', upload.single('eventImage'), async (req, res) => {
     const eventData = {
-        name: req.body.eventName,
+        name: req.body.name,
         category: req.body.category,
-        startDateTime: req.body.eventDateTimeStart,
-        endDateTime: req.body.eventDateTimeEnd,
-        location: req.body.eventLocation,
-        description: req.body.eventDescription,
-        image: req.file ? `/uploads/${req.file.filename}` : null
+        startDateTime: req.body.startDateTime,
+        endDateTime: req.body.endDateTime,
+        location: req.body.location,
+        description: req.body.description,
+        image: `/uploads/${req.file.filename}`
     };
-
     try {
-        // Create a new event in the database
+        // Save the event to the database
         const newEvent = await Event.create(eventData);
         console.log('New event created:', newEvent);
         res.redirect('/events');
@@ -39,7 +38,7 @@ router.post('/newEvent', upload.single('eventImage'), async (req, res) => {
 });
 
 // Route to handle requests for a specific event
-router.get('/:eventId', async (req, res) => {
+router.get('/events/:eventId', async (req, res) => {
     const eventId = req.params.eventId;
     try {
         // Find the event with the given eventId in the database
