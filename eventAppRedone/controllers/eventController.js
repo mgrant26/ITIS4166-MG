@@ -43,17 +43,20 @@ exports.renderNewEventForm = (req, res) => {
 
 // Create new event
 exports.createNewEvent = async (req, res) => {
-  const eventData = {
-    title: req.body.title,
-    category: req.body.category,
-    details: req.body.details,
-    startDateTime: req.body.startDateTime,
-    endDateTime: req.body.endDateTime,
-    location: req.body.location,
-    host: req.body.host,
-    image: `/uploads/${req.file.filename}`
-  };
+  const { title, category, details, startDateTime, endDateTime, location, host } = req.body;
+  const image = `/uploads/${req.file.filename}`;
+  
+  const start = new Date(startDateTime);
+  const end = new Date(endDateTime);
+  const duration = (end - start) / (1000 * 60 * 60);
+
+  if (duration < 3) {
+    return res.status(400).render('newEvent', { error: 'Event duration must be at least 3 hours.', title, category, details, startDateTime, endDateTime, location, host });
+  }
+
+  const eventData = { title, category, details, startDateTime, endDateTime, location, host, image };
   console.log(`Creating new event with data: ${JSON.stringify(eventData)}`);
+
   try {
     const newEvent = await Event.create(eventData);
     console.log('New event created:', newEvent);
@@ -83,17 +86,20 @@ exports.renderEditEventForm = async (req, res) => {
 // Update event
 exports.updateEvent = async (req, res) => {
   const eventId = req.params.eventId;
-  const updatedData = {
-    title: req.body.title,
-    category: req.body.category,
-    details: req.body.details,
-    startDateTime: req.body.startDateTime,
-    endDateTime: req.body.endDateTime,
-    location: req.body.location,
-    host: req.body.host,
-    image: req.file ? `/uploads/${req.file.filename}` : req.body.existingImage
-  };
+  const { title, category, details, startDateTime, endDateTime, location, host } = req.body;
+  const image = req.file ? `/uploads/${req.file.filename}` : req.body.existingImage;
+
+  const start = new Date(startDateTime);
+  const end = new Date(endDateTime);
+  const duration = (end - start) / (1000 * 60 * 60);
+
+  if (duration < 3) {
+    return res.status(400).render('editEvent', { error: 'Event duration must be at least 3 hours.', event: { _id: eventId, title, category, details, startDateTime, endDateTime, location, host, image } });
+  }
+
+  const updatedData = { title, category, details, startDateTime, endDateTime, location, host, image };
   console.log(`Updating event with eventId: ${eventId} with data: ${JSON.stringify(updatedData)}`);
+
   try {
     const updatedEvent = await Event.findByIdAndUpdate(eventId, updatedData, { new: true });
     if (!updatedEvent) {

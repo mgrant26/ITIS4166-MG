@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create New Event - The Divine Crustacean</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/styles/index.css">
 </head>
 <body>
     <div class="wrapper">
@@ -13,7 +13,7 @@
         <main class="content container-fluid p-0">
             <div class="container">
                 <h2 class="text-center py-3">Create New Event</h2>
-                <form id="eventForm" action="/events/new" method="post" enctype="multipart/form-data">
+                <form id="eventForm" action="/events/new" method="post" enctype="multipart/form-data" onsubmit="return validateEventDuration()">
                     <div class="d-flex justify-content-center">
                         <div class="beige-section-newEvent mx-2">
                             <div class="mb-3">
@@ -63,6 +63,19 @@
         <%- include('partials/footer') %>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="/js/scripts.js"></script>
+    <script src="/scripts.js"></script>
+    <script>
+        function validateEventDuration() {
+            const startDateTime = new Date(document.getElementById('startDateTime').value);
+            const endDateTime = new Date(document.getElementById('endDateTime').value);
+            const duration = (endDateTime - startDateTime) / (1000 * 60 * 60);
+
+            if (duration < 3) {
+                alert('Event duration must be at least 3 hours.');
+                return false;
+            }
+            return true;
+        }
+    </script>
 </body>
 </html>

@@ -52,7 +52,7 @@ body, html {
 .feature-box {
     background-color: #ffffff;
     border: 1px solid #dddddd;
-    border-radius: 10px;
+    border-radius: 10px; /* Retain rounded edges for feature boxes */
     padding: 20px;
     margin: 10px 0;
 }
@@ -72,7 +72,6 @@ body, html {
     align-items: center;
     padding: 20px;
     margin: 10px;
-    border-radius: 5px;
 }
 
 .beige-section-newEvent {
@@ -96,6 +95,7 @@ body, html {
 img {
     max-width: 100%;
     height: auto;
+    border-radius: 10px; /* Ensure images have rounded corners */
 }
 
 .event-image {
@@ -108,7 +108,6 @@ img {
 .beige-section-event {
     background-color: #f5f5dc;
     padding: 20px;
-    border-radius: 10px;
     display: flex;
     align-items: center;
 }
@@ -165,7 +164,6 @@ footer {
 .content {
     background-color: white;
     padding: 20px;
-    border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -176,7 +174,7 @@ footer {
 
 .card {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
+    border-radius: 10px; /* Retain rounded edges for cards */
 }
 
 .card-img-top {
