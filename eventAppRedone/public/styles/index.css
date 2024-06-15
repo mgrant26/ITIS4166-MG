@@ -1,0 +1,204 @@
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo {
+    width: 200px;
+    height: auto;
+}
+
+.logo-text {
+    font-family: "Liberation Serif", serif;
+}
+
+.footer-icon {
+    width: 24px; /* Adjust the size as needed */
+    height: auto;
+}
+
+.header img, .footer img {
+    max-width: 100px; /* Ensure header and footer images don't blow up */
+    height: auto;
+}
+
+.hero-section {
+    background-color: #f8f9fa;
+    padding: 50px 0;
+}
+
+.about-us-section {
+    background-color: #ffffff;
+    padding: 50px 0;
+}
+
+.features-section {
+    background-color: #f8f9fa;
+    padding: 50px 0;
+}
+
+.feature-box {
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px 0;
+}
+
+.call-to-action-section {
+    background-color: #007bff;
+    color: white;
+    padding: 50px 0;
+}
+
+.beige-section {
+    background-color: #f5f5dc;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+.beige-section-newEvent {
+    width: 100%;
+}
+
+.beige-section-newEvent input,
+.beige-section-newEvent select,
+.beige-section-newEvent textarea {
+    width: 100%;
+}
+
+/* Ensuring images within cards are of consistent size */
+.card-img-top {
+    max-width: 100%;
+    height: auto;
+    max-height: 200px; /* Add max-height to card images */
+    object-fit: cover; /* Ensure the image fits within the specified height */
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.event-image {
+    max-width: 200px; /* Adjust as necessary */
+    height: auto;
+    margin-right: 20px;
+}
+
+/* Specific styles for event detail view */
+.beige-section-event {
+    background-color: #f5f5dc;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.event-details {
+    list-style-type: none;
+    padding: 0;
+}
+
+.event-details li {
+    margin-bottom: 10px;
+}
+
+.wrapper {
+    padding: 20px;
+}
+
+/* General styling improvements */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+header, footer {
+    background-color: #007bff;
+    color: white;
+}
+
+footer {
+    padding: 10px 0;
+}
+
+.header a, .footer a {
+    color: white;
+}
+
+.header a:hover, .footer a:hover {
+    color: #0056b3;
+    text-decoration: none;
+}
+
+.navbar {
+    margin-bottom: 20px;
+}
+
+.navbar-brand, .nav-link {
+    color: white !important;
+}
+
+.navbar-brand:hover, .nav-link:hover {
+    color: #d1ecf1 !important;
+}
+
+.content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.footer {
+    text-align: center;
+    padding: 10px 0;
+}
+
+.card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.card-img-top {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    max-height: 200px; /* Add max-height to card images */
+    object-fit: cover; /* Ensure the image fits within the specified height */
+}
+
+.text-truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Event detail image size */
+.event-detail-image {
+    max-width: 30%; /* Ensure image does not exceed 30% of the page width */
+    height: auto;
+}
+
+.beige-section-newEvent .form-control-file {
+    max-width: 200px; /* Ensuring consistent size for uploaded images */
+    margin: auto;
+}

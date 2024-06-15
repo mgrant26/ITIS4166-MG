@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to The Divine Crustacean!</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="/styles/index.css">
+</head>
+<body>
+    <div class="wrapper">
+        <%- include('partials/header') %>
+        <main class="content container-fluid p-0">
+            <section class="hero-section text-center py-5 bg-light">
+                <div class="container">
+                    <h1 class="display-4">Welcome to The Divine Crustacean!</h1>
+                    <p class="lead">Your ultimate destination for all things crustacean. Join events, meet fellow enthusiasts, and explore the fascinating world of crustaceans.</p>
+                    <a href="/events" class="btn btn-primary btn-lg">Explore Events</a>
+                </div>
+            </section>
+            <section class="about-us-section py-5">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h2>About Us</h2>
+                            <p>At The Divine Crustacean, we are passionate about the diverse and fascinating world of crustaceans. Our mission is to connect crustacean enthusiasts from around the globe, fostering a community where knowledge and appreciation for these incredible creatures can flourish.</p>
+                            <p>Whether you're a seasoned expert or a curious newcomer, our platform offers something for everyone. From educational resources to exciting events, we strive to be the ultimate hub for all things crustacean.</p>
+                        </div>
+                        <div class="col-md-6 text-center">
+                            <img src="/images/about-us.jpg" alt="About Us" class="img-fluid rounded">
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="features-section py-5 bg-light">
+                <div class="container">
+                    <h2 class="text-center">What You Can Do</h2>
+                    <div class="row text-center mt-4">
+                        <div class="col-md-4">
+                            <div class="feature-box p-4">
+                                <img src="/images/join-events.jpg" alt="Join Events" class="img-fluid rounded mb-3">
+                                <h3>Join Events</h3>
+                                <p>Participate in exciting events and meet fellow crustacean enthusiasts. From local meetups to international conferences, there's always something happening.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="feature-box p-4">
+                                <img src="/images/learn.jpg" alt="Learn" class="img-fluid rounded mb-3">
+                                <h3>Learn</h3>
+                                <p>Access a wealth of resources and educational materials to deepen your understanding of crustaceans. Our library includes articles, videos, and expert talks.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="feature-box p-4">
+                                <img src="/images/community.jpg" alt="Community" class="img-fluid rounded mb-3">
+                                <h3>Connect</h3>
+                                <p>Join our community forums and social media groups to share your experiences, ask questions, and connect with other enthusiasts from around the world.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="call-to-action-section text-center py-5">
+                <div class="container">
+                    <h2>Ready to Dive In?</h2>
+                    <p class="lead">Sign up today and start your journey with The Divine Crustacean. Whether you're looking to learn, participate, or connect, we're here to help you explore the incredible world of crustaceans.</p>
+                    <a href="#" class="btn btn-success btn-lg">Sign Up</a>
+                </div>
+            </section>
+        </main>
+        <%- include('partials/footer') %>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="/scripts.js"></script>
+</body>
+</html>

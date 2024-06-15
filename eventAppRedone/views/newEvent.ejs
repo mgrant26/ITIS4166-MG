@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Event - The Divine Crustacean</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+    <div class="wrapper">
+        <%- include('partials/header') %>
+        <main class="content container-fluid p-0">
+            <div class="container">
+                <h2 class="text-center py-3">Create New Event</h2>
+                <form id="eventForm" action="/events/new" method="post" enctype="multipart/form-data">
+                    <div class="d-flex justify-content-center">
+                        <div class="beige-section-newEvent mx-2">
+                            <div class="mb-3">
+                                <label for="title" class="form-label">Event Name</label>
+                                <input type="text" class="form-control" id="title" name="title" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="category" class="form-label">Category</label>
+                                <select class="form-control" id="category" name="category" required>
+                                    <option value="Crab-Focused">Crab-Focused</option>
+                                    <option value="Lobster-Focused">Lobster-Focused</option>
+                                    <option value="Other Beautiful Crustaceans">Other Beautiful Crustaceans</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="startDateTime" class="form-label">Event Start Date & Time</label>
+                                <input type="datetime-local" class="form-control" id="startDateTime" name="startDateTime" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="endDateTime" class="form-label">Event End Date & Time</label>
+                                <input type="datetime-local" class="form-control" id="endDateTime" name="endDateTime" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="location" class="form-label">Event Location</label>
+                                <input type="text" class="form-control" id="location" name="location" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="details" class="form-label">Event Description</label>
+                                <textarea class="form-control" id="details" name="details" rows="3" required></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="host" class="form-label">Host</label>
+                                <input type="text" class="form-control" id="host" name="host" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="image" class="form-label">Upload Event Image</label>
+                                <input type="file" class="form-control-file" id="image" name="image" accept="image/*" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3 text-center">
+                        <button type="submit" class="btn btn-success btn-lg btn-block">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+        <%- include('partials/footer') %>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="/js/scripts.js"></script>
+</body>
+</html>
