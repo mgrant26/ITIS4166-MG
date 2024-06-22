@@ -13,7 +13,7 @@
         <main class="content container-fluid p-0">
             <div class="container">
                 <h2 class="text-center py-3">Events</h2>
-                <% Object.keys(categorizedEvents).forEach(category => { %>
+                <% for (let category in categorizedEvents) { %>
                     <h3 class="mt-4"><%= category %></h3>
                     <div class="row">
                         <% categorizedEvents[category].forEach(event => { %>
@@ -29,7 +29,7 @@
                             </div>
                         <% }); %>
                     </div>
-                <% }); %>
+                <% } %>
             </div>
         </main>
         <%- include('partials/footer') %>

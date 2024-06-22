@@ -1,27 +1,58 @@
 const express = require('express');
-const bodyParser = require('body-parser');
-const path = require('path');
+const session = require('express-session');
+const flash = require('connect-flash');
 const mongoose = require('mongoose');
-const eventRoutes = require('./routes/eventRoutes');
+const passport = require('passport');
+const path = require('path');
 const mainRoutes = require('./routes/mainRoutes');
+const eventRoutes = require('./routes/eventRoutes');
+const userRoutes = require('./routes/userRoutes');
+
+// Passport config
+require('./config/passport')(passport);
 
 const app = express();
 
-// Replace with your actual MongoDB Atlas connection string
+// Connect to MongoDB
 const mongoURI = 'mongodb+srv://newUser1:12127125@itis4166-mg.36cqfy7.mongodb.net/?retryWrites=true&w=majority&appName=ITIS4166-MG';
-
-mongoose.connect(mongoURI, {}).then(() => console.log('MongoDB connected'))
+mongoose.connect(mongoURI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+}).then(() => console.log('MongoDB connected'))
   .catch(err => console.error('MongoDB connection error:', err));
 
 // Set EJS as the view engine
 app.set('view engine', 'ejs');
 
-// Serve static files before any other routes
+// Serve static files
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Middleware to parse form data
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+// Express session
+app.use(session({
+  secret: 'secret',
+  resave: true,
+  saveUninitialized: true
+}));
+
+// Passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
+
+// Connect flash
+app.use(flash());
+
+// Global variables
+app.use((req, res, next) => {
+  res.locals.success_msg = req.flash('success_msg');
+  res.locals.error_msg = req.flash('error_msg');
+  res.locals.error = req.flash('error');
+  res.locals.user = req.user || null;
+  next();
+});
 
 // Log static file requests
 app.use((req, res, next) => {
@@ -31,9 +62,10 @@ app.use((req, res, next) => {
   next();
 });
 
-// Include routes
+// Routes
 app.use('/', mainRoutes);
 app.use('/events', eventRoutes);
+app.use('/users', userRoutes);
 
 // Error handling middleware
 app.use((req, res, next) => {

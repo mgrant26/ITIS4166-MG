@@ -9,6 +9,7 @@ router.use('/images', express.static(path.join(__dirname, '../public/images')));
 
 // Render the index page
 router.get('/', (req, res) => {
+  console.log('Rendering index page');
   res.render('index');
 });
 
