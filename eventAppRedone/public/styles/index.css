@@ -29,8 +29,9 @@ body, html {
     height: auto;
 }
 
+/* Ensure header and footer images do not blow up */
 .header img, .footer img {
-    max-width: 100px; /* Ensure header and footer images don't blow up */
+    max-width: 100px;
     height: auto;
 }
 

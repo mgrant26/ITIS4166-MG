@@ -52,7 +52,7 @@ exports.createNewEvent = async (req, res) => {
     endDateTime: req.body.endDateTime,
     location: req.body.location,
     host: req.body.host,
-    image: `/uploads/${req.file.filename}`,
+    image: req.file ? `/uploads/${req.file.filename}` : null,
     user: req.user.id
   };
   console.log(`Creating new event with data: ${JSON.stringify(eventData)}`);

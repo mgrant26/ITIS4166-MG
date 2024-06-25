@@ -4,9 +4,10 @@ const flash = require('connect-flash');
 const mongoose = require('mongoose');
 const passport = require('passport');
 const path = require('path');
-const mainRoutes = require('./routes/mainRoutes');
-const eventRoutes = require('./routes/eventRoutes');
 const userRoutes = require('./routes/userRoutes');
+const eventRoutes = require('./routes/eventRoutes');
+const multer = require('multer');
+const upload = multer({ dest: 'uploads/' });
 
 // Passport config
 require('./config/passport')(passport);
@@ -15,10 +16,7 @@ const app = express();
 
 // Connect to MongoDB
 const mongoURI = 'mongodb+srv://newUser1:12127125@itis4166-mg.36cqfy7.mongodb.net/?retryWrites=true&w=majority&appName=ITIS4166-MG';
-mongoose.connect(mongoURI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-}).then(() => console.log('MongoDB connected'))
+mongoose.connect(mongoURI).then(() => console.log('MongoDB connected'))
   .catch(err => console.error('MongoDB connection error:', err));
 
 // Set EJS as the view engine
@@ -63,9 +61,9 @@ app.use((req, res, next) => {
 });
 
 // Routes
-app.use('/', mainRoutes);
-app.use('/events', eventRoutes);
 app.use('/users', userRoutes);
+app.use('/events', eventRoutes);
+app.use('/', require('./routes/mainRoutes'));
 
 // Error handling middleware
 app.use((req, res, next) => {
