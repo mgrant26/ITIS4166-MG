@@ -60,10 +60,10 @@ app.use((req, res, next) => {
   next();
 });
 
-// Routes
+// Use Routes
 app.use('/users', userRoutes);
 app.use('/events', eventRoutes);
-app.use('/', require('./routes/mainRoutes'));
+app.use('/', (req, res) => res.render('index'));  // This ensures the index page renders without needing index.js
 
 // Error handling middleware
 app.use((req, res, next) => {

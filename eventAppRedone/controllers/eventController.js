@@ -85,6 +85,7 @@ exports.renderEditEventForm = async (req, res) => {
 // Update event
 exports.updateEvent = async (req, res) => {
   const eventId = req.params.eventId;
+  console.log('Received form data, Going to Attempt Update:', req.body);
   const updatedData = {
     title: req.body.title,
     category: req.body.category,

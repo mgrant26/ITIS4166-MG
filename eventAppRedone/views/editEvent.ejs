@@ -17,8 +17,8 @@
           <div class="d-flex justify-content-center">
             <div class="beige-section mx-2">
               <div class="mb-3">
-                <label for="eventName" class="form-label">Event Name</label>
-                <input type="text" class="form-control" id="eventName" name="title" value="<%= event.title %>" required>
+                <label for="title" class="form-label">Event Name</label>
+                <input type="text" class="form-control" id="title" name="title" value="<%= event.title %>" required>
               </div>
               <div class="mb-3">
                 <label for="category" class="form-label">Category</label>
@@ -29,28 +29,28 @@
                 </select>
               </div>
               <div class="mb-3">
-                <label for="eventDateTimeStart" class="form-label">Event Start Date & Time</label>
-                <input type="datetime-local" class="form-control" id="eventDateTimeStart" name="startDateTime" value="<%= new Date(event.startDateTime).toISOString().substring(0, 16) %>" required>
+                <label for="startDateTime" class="form-label">Event Start Date & Time</label>
+                <input type="datetime-local" class="form-control" id="startDateTime" name="startDateTime" value="<%= new Date(event.startDateTime).toISOString().substring(0, 16) %>" required>
               </div>
               <div class="mb-3">
-                <label for="eventDateTimeEnd" class="form-label">Event End Date & Time</label>
-                <input type="datetime-local" class="form-control" id="eventDateTimeEnd" name="endDateTime" value="<%= new Date(event.endDateTime).toISOString().substring(0, 16) %>" required>
+                <label for="endDateTime" class="form-label">Event End Date & Time</label>
+                <input type="datetime-local" class="form-control" id="endDateTime" name="endDateTime" value="<%= new Date(event.endDateTime).toISOString().substring(0, 16) %>" required>
               </div>
               <div class="mb-3">
-                <label for="eventLocation" class="form-label">Event Location</label>
-                <input type="text" class="form-control" id="eventLocation" name="location" value="<%= event.location %>" required>
+                <label for="location" class="form-label">Event Location</label>
+                <input type="text" class="form-control" id="location" name="location" value="<%= event.location %>" required>
               </div>
               <div class="mb-3">
-                <label for="eventDescription" class="form-label">Event Description</label>
-                <textarea class="form-control" id="eventDescription" name="details" rows="3" required><%= event.details %></textarea>
+                <label for="details" class="form-label">Event Description</label>
+                <textarea class="form-control" id="details" name="details" rows="3" required><%= event.details %></textarea>
               </div>
               <div class="mb-3">
-                <label for="eventHost" class="form-label">Host</label>
-                <input type="text" class="form-control" id="eventHost" name="host" value="<%= event.host %>" required>
+                <label for="host" class="form-label">Host</label>
+                <input type="text" class="form-control" id="host" name="host" value="<%= event.host %>" required>
               </div>
               <div class="mb-3">
-                <label for="eventImage" class="form-label">Upload Event Image</label>
-                <input type="file" class="form-control" id="eventImage" name="image" accept="image/*">
+                <label for="image" class="form-label">Upload Event Image</label>
+                <input type="file" class="form-control" id="image" name="image" accept="image/*">
                 <input type="hidden" name="existingImage" value="<%= event.image %>">
               </div>
             </div>
